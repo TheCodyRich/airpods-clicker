@@ -4,13 +4,15 @@ A macOS menu bar app that turns your AirPods case into a presentation clicker. O
 
 Works with AirPods and Beats earbuds that come in a charging case, on Apple Silicon and Intel Macs running macOS 13 (Ventura) or later.
 
+[![Download for macOS](https://img.shields.io/badge/Download_for_macOS-AirPodClicker.dmg-0071e3?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/TheCodyRich/airpods-clicker/releases/latest/download/AirPodClicker.dmg)
+
 ## Install
 
 Setup takes about two minutes. You only do it once.
 
 ### 1. Download
 
-Go to the [latest release](https://github.com/TheCodyRich/airpods-clicker/releases/latest) and download **AirPodClicker.dmg**.
+Click the **Download for macOS** button above, or [download AirPodClicker.dmg here](https://github.com/TheCodyRich/airpods-clicker/releases/latest/download/AirPodClicker.dmg). It saves to your Downloads folder. Older versions are on the [releases page](https://github.com/TheCodyRich/airpods-clicker/releases).
 
 ### 2. Move it to Applications
 
