@@ -14,9 +14,9 @@ Go to the [latest release](https://github.com/TheCodyRich/airpods-clicker/releas
 
 ### 2. Move it to Applications
 
-1. Double-click **AirPodClicker.dmg** in your Downloads folder. A window opens with the app and an Applications folder.
+1. Double-click **AirPodClicker.dmg** in your Downloads folder. A window opens showing the app, an arrow, and your Applications folder.
 2. Drag **AirPodClicker** onto the **Applications** folder.
-3. Eject the disk image. In Finder's sidebar, click the eject button next to **AirPod Clicker**.
+3. (Optional) Eject the installer. In Finder's sidebar, click the eject button next to **AirPod Clicker**. You can also delete the DMG from Downloads.
 
 ### 3. Open it the first time
 
@@ -26,6 +26,9 @@ AirPod Clicker is free and isn't signed with a paid Apple developer certificate,
 
 1. Open **Applications** and double-click **AirPodClicker**.
 2. macOS says it "could not verify AirPodClicker is free of malware." Click **Done**. Don't click Move to Trash.
+
+   <img src="docs/images/1-gatekeeper-not-opened.png" alt="AirPodClicker Not Opened dialog with Move to Trash and Done buttons" width="260">
+
 3. Open **System Settings** and click **Privacy & Security** in the sidebar.
 4. Scroll down to the **Security** section. You'll see a line saying AirPodClicker was blocked. Click **Open Anyway**.
 5. Enter your Mac password or use Touch ID.
@@ -38,17 +41,27 @@ AirPod Clicker is free and isn't signed with a paid Apple developer certificate,
 
 ### 4. Allow Bluetooth
 
-macOS asks whether AirPod Clicker can use Bluetooth. Click **Allow**. The app uses it to see your case opening and closing. It doesn't connect to or change your AirPods.
+macOS asks whether AirPodClicker can use Bluetooth. Click **Allow**. The app uses it to see your case opening and closing. It doesn't connect to or change your AirPods.
+
+<img src="docs/images/2-bluetooth-prompt.png" alt="AirPodClicker would like to use Bluetooth prompt with Don't Allow and Allow buttons" width="260">
 
 ### 5. Allow Accessibility
 
 The app needs Accessibility access to press the arrow keys for you.
 
-1. When macOS shows the Accessibility prompt, click **Open System Settings**. If you missed the prompt, click the AirPods case icon in the menu bar and choose **Grant Accessibility access…**, or go to **System Settings > Privacy & Security > Accessibility**.
-2. Turn on the switch next to **AirPodClicker**.
+1. macOS shows an Accessibility Access prompt. Click **Open System Settings**. Don't click Deny.
+
+   <img src="docs/images/3-accessibility-prompt.png" alt="Accessibility Access prompt with Open System Settings and Deny buttons" width="450">
+
+   If you missed the prompt, click the AirPods case icon in the menu bar and choose **Grant Accessibility access…**, or go to **System Settings > Privacy & Security > Accessibility**.
+
+2. Find **AirPodClicker** in the list and turn on its switch. It starts off, as shown here.
+
+   <img src="docs/images/4-accessibility-settings.png" alt="System Settings Accessibility list with AirPodClicker switched off" width="600">
+
 3. Enter your password or use Touch ID if asked.
 
-Click the menu bar icon to check. If the **Grant Accessibility access…** line is gone, setup is done.
+Click the menu bar icon to check. If the **Grant Accessibility access…** line is gone, setup is done. If it's still there even though the switch is on, see Troubleshooting below.
 
 ### 6. Present
 
@@ -119,7 +132,7 @@ Needs the Xcode command line tools (`xcode-select --install`) with Swift 5.9 or 
 ./build.sh
 ```
 
-That builds a universal `build/AirPodClicker.app`, ad-hoc signed. `./build.sh --dmg` also packages `build/AirPodClicker.dmg`.
+That builds a universal `build/AirPodClicker.app`, ad-hoc signed. `./build.sh --dmg` also packages `build/AirPodClicker.dmg` with the drag-to-Applications window. That step needs [dmgbuild](https://pypi.org/project/dmgbuild/) (`pip install dmgbuild`). The window background lives in `dmg/background.tiff`; to change it, edit `dmg/make_background.py`, run it, then run `tiffutil -cathidpicheck dmg/background.png dmg/background@2x.png -out dmg/background.tiff`.
 
 Each rebuild changes the ad-hoc signature, so macOS asks for Accessibility again. Use the `tccutil` command from Troubleshooting if the old permission gets stuck.
 

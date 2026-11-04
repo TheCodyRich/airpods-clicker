@@ -18,14 +18,11 @@ cp Resources/Info.plist "$APP/Contents/"
 codesign --force --sign - --identifier com.example.AirPodClicker "$APP"
 echo "Built $APP ($(lipo -archs "$APP/Contents/MacOS/AirPodClicker"))"
 
+# The DMG opens to a window with the app, an arrow, and an Applications shortcut.
+# Needs dmgbuild (`pip install dmgbuild`); set DMGBUILD to use a specific copy.
 if [[ "${1:-}" == "--dmg" ]]; then
     DMG=build/AirPodClicker.dmg
-    STAGE=build/dmg
-    rm -rf "$STAGE" "$DMG"
-    mkdir -p "$STAGE"
-    cp -R "$APP" "$STAGE/"
-    ln -s /Applications "$STAGE/Applications"
-    hdiutil create -quiet -volname "AirPod Clicker" -srcfolder "$STAGE" -ov -format UDZO "$DMG"
-    rm -rf "$STAGE"
+    rm -f "$DMG"
+    "${DMGBUILD:-dmgbuild}" -s dmg/settings.py -D app="$APP" -D background=dmg/background.tiff "AirPod Clicker" "$DMG"
     echo "Built $DMG"
 fi

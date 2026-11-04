@@ -6,3 +6,4 @@ xcuserdata/
 DerivedData/
 *.log
 .DS_Store
+dmg/*.png
