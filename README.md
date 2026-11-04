@@ -1,6 +1,6 @@
 # AirPod Clicker
 
-A macOS menu bar app that turns your AirPods case into a presentation clicker. Open the lid and Google Slides moves to the next slide. It also works with Keynote, PowerPoint, and anything else that advances on the right arrow key.
+A macOS menu bar app that turns your AirPods case into a presentation clicker. Open the lid and your  Slides moves to the next slide. It works with Google Slides, Keynote, PowerPoint, and anything else that advances on the right arrow key.
 
 Works with AirPods and Beats earbuds that come in a charging case, on Apple Silicon and Intel Macs running macOS 13 (Ventura) or later.
 
